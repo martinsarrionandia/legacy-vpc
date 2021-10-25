@@ -29,7 +29,9 @@ Creates a Legacy VPC, infrastructure and IAM role for migrating ESXi guests to A
 
 ### Configure variables
 
-Most of the configuration options you require should be in the variables files.
+Most of the configuration options you require should be in the variables files `variables.tf`
+
+You will also need to create a state bucket in the AWS console and configure it in `backend.tf`
 
 The terraform will deploy a very simple environment with the following.
 

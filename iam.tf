@@ -9,7 +9,6 @@ data "template_file" "sms_policy" {
   }
 }
 
-
 resource "aws_iam_policy" "sms_policy" {
   name   = "sms_import_policy"
   policy = data.template_file.sms_policy.rendered

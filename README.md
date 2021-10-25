@@ -61,7 +61,7 @@ terraform apply
 
 The migrate script retreives your ESXi password from AWS Secrets Manager.
 
-I have chosen the root user but you don't have to. Set ESXI_USER in the migrate script `migrate_esxi_guest.sh`.
+I have chosen the root user but you don't have to. Set ESXI_USER in the migrate script `migrate_esxi_guest.sh`
 
 You will need to configure this as an AWS Secret.
 
@@ -81,7 +81,7 @@ Switch to Plain Text mode.
 }
 ```
 
-Edit the `migrate_esxi_guest.sh` variables values like so it matches your secret value you just made.
+Edit the `migrate_esxi_guest.sh` variables values like so it matches the secret value you just made.
 
 ```bash
 ESXI_USER="root"
@@ -90,7 +90,7 @@ SECRET_ID="host/$ESXI_HOST/user/$ESXI_USER" #Don't change this
 SECRET_KEY="password"                       #Don't change this either
 ```
 
-## Configure migrate script
+## Configure the migrate script
 
 The migrate script should now be partialy configured with the account details above.
 

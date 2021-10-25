@@ -1,9 +1,9 @@
 #!/bin/bash
 
 ESXI_USER="root"
-SECRET_ID="host/sexiboy/user/$ESXI_USER"
-SECRET_KEY="password"
 ESXI_HOST="sexiboy.mgmt"
+SECRET_KEY="password"
+SECRET_ID="host/$ESXI_HOST/user/$ESXI_USER"
 ESXI_PASSWORD=$( aws secretsmanager get-secret-value --secret-id $SECRET_ID | jq --raw-output '.SecretString' | jq -r ."$SECRET_KEY")
 MIGRATE_GUEST="djmaddox.co.uk"
 OVA_SAVE_DIR="."

@@ -1,5 +1,5 @@
 ###
-#Creates a Legacy VPC, infrastructure and IAM role for migrating ESXi guests to AMI images. Provides a bash script to migrate VMs 
+Creates a Legacy VPC, infrastructure and IAM role for migrating ESXi guests to AMI images. Provides a bash script to migrate VMs 
 ###
 
 # Requirements
@@ -37,7 +37,7 @@ The terraform will deploy a very simple environment with the following.
 
 * One subnet, one routing table and an IGW
 
-* A management SG & Public ingres SG
+* A management SG & public ingres SG
 
 * S3 bucket for storing OVAs to import
 
@@ -59,9 +59,9 @@ terraform apply
 
 ### ESXi host password
 
-The migrate script retreives your password from AWS Secrets Manager.
+The migrate script retreives your ESXi password from AWS Secrets Manager.
 
-This is your ESXi password. I have chosen the root user but you don't have to. Set ESXI_USER in the migrate script `migrate_esxi_guest.sh`.
+I have chosen the root user but you don't have to. Set ESXI_USER in the migrate script `migrate_esxi_guest.sh`.
 
 You will need to configure this as an AWS Secret.
 
@@ -81,7 +81,7 @@ Switch to Plain Text mode.
 }
 ```
 
-Edit the `migrate_esxi_guest.sh` variables values like so it matches your secret value you jsut made.
+Edit the `migrate_esxi_guest.sh` variables values like so it matches your secret value you just made.
 
 ```bash
 ESXI_USER="root"
@@ -92,13 +92,13 @@ SECRET_KEY="password"                       #Don't change this either
 
 ## Configure migrate script
 
-The migrate script should now be partialy configured with account details above.
+The migrate script should now be partialy configured with the account details above.
 
 Next configure the following.
 
 ```bash
 MIGRATE_GUEST="guestname"              # The guest you want to migrate
-OVA_SAVE_DIR="."                       # The directory to save the OVA file in
+OVA_SAVE_DIR="."                       # The directory on your laptop to save the OVA file in
 MIGRATE_S3_BUCKET="myimportbucketname" # This has to match "disk_image_file_bucket" in variables.tf
 ```
 

@@ -1,6 +1,10 @@
+resource "aws_s3_bucket_acl" "private_acl" {
+  bucket = aws_s3_bucket.import_bucket.id
+  acl    = "private"
+}
+
 resource "aws_s3_bucket" "import_bucket" {
   bucket = var.disk_image_file_bucket
-  acl    = "private"
 
   tags = {
     Name = "SMS Import Bucket"

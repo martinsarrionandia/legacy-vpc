@@ -41,7 +41,7 @@ resource "aws_security_group_rule" "outbound_all" {
 }
 
 resource "aws_security_group" "legacy_ingress" {
-  name        = "legacy Ingress"
+  name        = "Legacy Ingress"
   description = "Allow Ingress traffic to instances"
   vpc_id      = aws_vpc.legacy.id
 }

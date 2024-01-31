@@ -10,12 +10,6 @@ variable "legacy_subnet_cidr" {
   description = "This defines the VPC CIDR and only subnet"
 }
 
-variable "legacy_mgmt_ranges" {
-  type        = list(string)
-  default     = ["82.70.52.46/32"]
-  description = "This defines from where you can SSH into your VPC"
-}
-
 variable "legacy_admin_https" {
   type        = string
   default     = "10000"
@@ -34,4 +28,14 @@ variable "office_365_mail_ipv4" {
     "13.107.6.152/31", "13.107.18.10/31", "13.107.128.0/22", "23.103.160.0/20", "40.96.0.0/13", "40.104.0.0/15", "52.96.0.0/14", "131.253.33.215/32", "132.245.0.0/16", "150.171.32.0/22", "204.79.197.215/32",
   ]
   description = "A list of Office 365 servers. Used in an SG to permit IMAP/SMTP access"
+}
+
+variable "instance_key_name" {
+  type    = string
+  default = "sarrionandia-eu-w2"
+}
+
+variable "domain_name" {
+  type    = string
+  default = "sarrionandia.co.uk"
 }
